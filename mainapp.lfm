@@ -23,9 +23,16 @@ object Form1: TForm1
       Top = 1
       Width = 638
       Align = alClient
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Courier New'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
       Lines.Strings = (
         'Memo1'
       )
+      ParentFont = False
       ScrollBars = ssAutoBoth
       TabOrder = 0
       TabStop = False

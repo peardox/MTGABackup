@@ -1,7 +1,7 @@
 unit mainapp;
 
 {$mode objfpc}{$H+}
-{$define usemtga}
+// {$define usemtga}
 
 interface
 
@@ -24,7 +24,6 @@ type
     Panel2: TPanel;
     procedure Button1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
-    procedure PrintFiles(FileList: TStringList; Listing: TStrings; Depth: Integer = 0);
   private
 
   public
@@ -33,7 +32,6 @@ type
 
 var
   Form1: TForm1;
-  linecount: Integer;
 
 implementation
 
@@ -43,21 +41,6 @@ uses
 {$R *.lfm}
 
 { TForm1 }
-
-procedure TForm1.PrintFiles(FileList: TStringList; Listing: TStrings; Depth: Integer = 0);
-var
-  idx: Integer;
-begin
-  for idx := 0 to FileList.Count - 1 do
-    begin
-      Inc(linecount);
-      Listing.Add(StringOfChar(' ', Depth * 4) + FileList.Strings[idx]);
-      if FileList.Objects[idx] <> nil then
-        begin
-          PrintFiles(FileList.Objects[idx] as TStringList, Listing, Depth + 1);
-        end;
-    end;
-end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 const
@@ -70,7 +53,7 @@ const
 var
   LogDir: String;
   FileList: TStringList;
-  idx: Integer;
+  linecount: Integer;
 begin
   linecount := 0;
   LogDir := LocateMTGA;
@@ -85,8 +68,10 @@ begin
       {$else}
       FileList := RecursiveFileList(TestDir);
       {$endif}
-      PrintFiles(FileList, Memo1.Lines);
-      Memo1.Lines.Add('' + LineEnding + IntToStr(linecount) + ' records');
+      Memo1.Lines.Add(EmptyStr);
+      linecount := RecursiveListFiles(FileList, Memo1.Lines);
+      Memo1.Lines.Insert(0, IntToStr(linecount) + ' records');
+      Memo1.VertScrollBar.Position := 0;
       FileList.Free;
     end
   else
