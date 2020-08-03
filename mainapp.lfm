@@ -25,6 +25,7 @@ object Form1: TForm1
       Lines.Strings = (
         'Memo1'
       )
+      ScrollBars = ssAutoBoth
       TabOrder = 0
       TabStop = False
     end

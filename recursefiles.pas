@@ -33,11 +33,17 @@ begin
       repeat
       with Info do
         begin
-        If (Attr and faDirectory) = faDirectory then
-          begin
-            FileList.Add(Name);
-          end;
-        FileList.Add(Name);
+          if (Attr and faDirectory) = faDirectory then
+            begin
+              if ((Name <> '.') and (Name <> '..')) then
+                begin
+                  FileList.AddObject(Name, RecursiveFileList(SearchPath + DirectorySeparator + Name, nil));
+                end;
+            end
+          else
+            begin
+              FileList.AddObject(Name, nil);
+            end;
         end;
       until FindNext(Info)<>0;
     FindClose(Info);
