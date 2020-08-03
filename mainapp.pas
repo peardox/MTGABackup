@@ -7,7 +7,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  ComCtrls;
+  ComCtrls, Menus;
 
 type
 
@@ -16,10 +16,14 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     Label1: TLabel;
+    MainMenu1: TMainMenu;
     Memo1: TMemo;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
     Panel1: TPanel;
     Panel2: TPanel;
     procedure Button1Click(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
     procedure PrintFiles(FileList: TStringList; Listing: TStrings; Depth: Integer = 0);
   private
 
@@ -89,6 +93,11 @@ begin
     begin
       Label1.Caption := 'Log Directory not found';
     end;
+end;
+
+procedure TForm1.MenuItem2Click(Sender: TObject);
+begin
+  Close;
 end;
 
 end.
