@@ -60,20 +60,11 @@ object Form1: TForm1
         Left = 1
         Height = 281
         Top = 1
-        Width = 676
+        Width = 976
         TabStop = False
         Align = alClient
+        ExpandSignType = tvestPlusMinus
         TabOrder = 0
-      end
-      object Memo2: TMemo
-        Left = 677
-        Height = 281
-        Top = 1
-        Width = 300
-        Align = alRight
-        ScrollBars = ssAutoBoth
-        TabOrder = 1
-        TabStop = False
       end
     end
   end
