@@ -32,7 +32,10 @@ begin
       if FileList.Objects[idx] <> nil then
         begin
           ChildNode := Listing.Items.AddChild(ParentNode, FileList.Strings[idx]);
-          ChildNode.Expand(True);
+          if ParentNode <> nil then
+            begin
+            ParentNode.Expand(True);
+            end;
           LineCount += RecursiveListFiles(FileList.Objects[idx] as TStringList, Listing, ChildNode, Depth + 1);
         end
       else
@@ -44,7 +47,6 @@ begin
           else
             begin
             ChildNode := Listing.Items.AddChild(ParentNode, FileList.Strings[idx]);
-            ChildNode.Expand(True);
             end;
         end;
 
