@@ -1,55 +1,94 @@
 object Form1: TForm1
   Left = 340
-  Height = 240
+  Height = 582
   Top = 145
-  Width = 640
+  Width = 980
   Caption = 'Form1'
-  ClientHeight = 220
-  ClientWidth = 640
+  ClientHeight = 562
+  ClientWidth = 980
   Menu = MainMenu1
   LCLVersion = '2.0.8.0'
   object Panel1: TPanel
     Left = 0
-    Height = 193
+    Height = 535
     Top = 0
-    Width = 640
+    Width = 980
     Align = alClient
-    ClientHeight = 193
-    ClientWidth = 640
+    ClientHeight = 535
+    ClientWidth = 980
     TabOrder = 0
-    object Memo1: TMemo
+    OnResize = Panel1Resize
+    object Panel3: TPanel
       Left = 1
-      Height = 191
+      Height = 250
       Top = 1
-      Width = 638
-      Align = alClient
-      Font.CharSet = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -12
-      Font.Name = 'Courier New'
-      Font.Pitch = fpFixed
-      Font.Quality = fqDraft
-      Lines.Strings = (
-        'Memo1'
-      )
-      ParentFont = False
-      ScrollBars = ssAutoBoth
+      Width = 978
+      Align = alTop
+      Caption = 'Panel3'
+      ClientHeight = 250
+      ClientWidth = 978
       TabOrder = 0
-      TabStop = False
+      object Memo1: TMemo
+        Left = 1
+        Height = 248
+        Top = 1
+        Width = 976
+        Align = alClient
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        ParentFont = False
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        TabStop = False
+      end
+    end
+    object Panel4: TPanel
+      Left = 1
+      Height = 283
+      Top = 251
+      Width = 978
+      Align = alClient
+      Caption = 'Panel4'
+      ClientHeight = 283
+      ClientWidth = 978
+      TabOrder = 1
+      object TreeView1: TTreeView
+        Left = 1
+        Height = 281
+        Top = 1
+        Width = 676
+        TabStop = False
+        Align = alClient
+        TabOrder = 0
+      end
+      object Memo2: TMemo
+        Left = 677
+        Height = 281
+        Top = 1
+        Width = 300
+        Align = alRight
+        ScrollBars = ssAutoBoth
+        TabOrder = 1
+        TabStop = False
+      end
     end
   end
   object Panel2: TPanel
     Left = 0
     Height = 27
-    Top = 193
-    Width = 640
+    Top = 535
+    Width = 980
     Align = alBottom
     AutoSize = True
     ClientHeight = 27
-    ClientWidth = 640
+    ClientWidth = 980
     TabOrder = 1
     object Button1: TButton
-      Left = 564
+      Left = 904
       Height = 25
       Top = 1
       Width = 75
